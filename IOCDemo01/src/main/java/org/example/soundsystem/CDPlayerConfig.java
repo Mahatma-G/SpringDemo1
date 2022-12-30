@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
  * @description CD配置文件
  */
 @Configuration
-@ComponentScan
+//@ComponentScan("org.example.soundsystem")
+//@ComponentScan(basePackages = "org.example.soundsystem")
+@ComponentScan(basePackageClasses = {CompactDisc.class})
 public class CDPlayerConfig {
 }
