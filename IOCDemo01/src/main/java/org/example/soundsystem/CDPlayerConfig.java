@@ -1,5 +1,6 @@
 package org.example.soundsystem;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,6 +12,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 //@ComponentScan("org.example.soundsystem")
 //@ComponentScan(basePackages = "org.example.soundsystem")
-@ComponentScan(basePackageClasses = {CompactDisc.class})
+//@ComponentScan(basePackageClasses = {CompactDisc.class})
 public class CDPlayerConfig {
+    @Bean(name = "lonelyHeartsClubBand")
+    public CompactDisc sgtPeppers(){
+        return new SgtPeppers();
+    }
+
+    @Bean
+    public CDPlayer cdPlayer(CompactDisc compactDisc) {
+        return new CDPlayer(compactDisc);
+    }
+//    @Bean
+//    public CDPlayer cdPlayer() {
+//        return new CDPlayer(sgtPeppers());
+//    }
 }
